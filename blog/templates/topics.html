@@ -1,0 +1,8 @@
+{% for result in results %}
+  <h2>{{ result.topic }}</h2>
+  <ul>
+    {% for author in result.authors %}
+      <li>{{ author.name }} - {{ author.post_count }} posts</li>
+    {% endfor %}
+  </ul>
+{% endfor %}

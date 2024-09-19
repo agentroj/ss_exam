@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - "8765:8765"
+    volumes:
+      - .:/app
+    environment:
+      - DEBUG=True
+    entrypoint: ["./entrypoint.sh"]
+    command: python manage.py runserver 0.0.0.0:8765
