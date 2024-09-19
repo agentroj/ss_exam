@@ -99,7 +99,7 @@ You can access the Django admin panel at http://localhost:8765/admin using the s
 ### **Introduction**
 In the future, if the project has grown, so has the number of blog posts stored in the database. Users frequently request blog posts based on various criteria, which poses a challenge for database performance. Optimizing query retrieval for large datasets becomes critical as the volume of data increases. This article discusses the optimization strategies employed to improve blog post retrieval performance.
 
-###**Understanding the Problem**
+### **Statement of the Problem**
 The application accumulates a large number of blog posts over time, and users need to retrieve posts based on criteria such as:
 
 **Topic**
@@ -143,7 +143,7 @@ class BlogPostPagination(LimitOffsetPagination):
 
 This way, the API delivers manageable chunks of data, ensuring faster response times while reducing the load on the server.
 
-** 4. Filtering and Sorting**
+**4. Filtering and Sorting**
 To reduce the data retrieved, queries are optimized to filter based on user input. For example, if a user wants to retrieve blog posts by a specific author, the query filters the posts by author_id:
 
 ```
@@ -173,6 +173,8 @@ def get_blog_posts(author_id):
 
     return blog_posts
 ```
+
+**7. Using background tasking, implementing asynchronouos functions and queue management systems.**
 
 ## **Conclusion**
 Optimizing blog post retrieval in a growing project is essential to ensure a smooth and responsive user experience. By employing efficient query techniques, indexing key fields, and implementing caching and pagination, we can significantly improve the performance of the application. For larger deployments, a scalable database like PostgreSQL or MySQL would be ideal for handling high volumes of data.
